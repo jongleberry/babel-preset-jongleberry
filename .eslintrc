@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard"
+  ],
+  "env": {
+
+  },
+  "rules": {
+    "comma-dangle": [2, "always"]
+  }
+}
