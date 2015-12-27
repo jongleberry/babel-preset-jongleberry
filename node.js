@@ -2,16 +2,6 @@
 
 const version = ~~/^v(\d+)/.exec(process.version)[1]
 
-if (version < 4) {
-  console.error('Only node v4+ is supported!')
-  process.exit(1)
-}
-
-if (version >= 6) {
-  console.error('Only node v6+ is not yet supported! Please file an issue!')
-  process.exit(1)
-}
-
 const wrapDefault = require('./wrap-default')
 
 module.exports = {
@@ -29,6 +19,8 @@ module.exports = {
   ],
   presets: [
     require('babel-preset-stage-0'),
-    require('babel-preset-es2015-node' + version),
+    version >= 5 ? require('babel-preset-es2015-node5')
+      : version >= 4 ? require('babel-preset-es2015-node4')
+      : require('babel-preset-es2015'),
   ],
 }
