@@ -18,14 +18,19 @@
     "babel-preset-stage-0": "^6.3.13"
   },
   "devDependencies": {
-    "babel-eslint": "4",
-    "eslint": "1",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^5.0.0-beta6",
+    "eslint": "^1.10.3",
+    "eslint-config-jongleberry": "^1.0.1",
     "eslint-config-standard": "4",
-    "eslint-plugin-standard": "1",
-    "ghooks": "1"
+    "eslint-plugin-react": "^3.13.1",
+    "eslint-plugin-standard": "^1.3.1",
+    "ghooks": "^1.0.1"
   },
   "scripts": {
-    "lint": "eslint --cache *.js"
+    "lint": "eslint --cache *.js test",
+    "test": "mocha",
+    "test-cov": "nyc node_modules/mocha/bin/_mocha && nyc report --reporter=lcov"
   },
   "config": {
     "ghooks": {
@@ -39,6 +44,8 @@
     "node",
     "es6",
     "es7",
+    "es2015",
+    "es2016",
     "isomorphic"
   ],
   "files": [

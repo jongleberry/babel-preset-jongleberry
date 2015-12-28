@@ -2,6 +2,8 @@
 # babel-preset-jongleberry
 
 [![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
@@ -34,10 +36,12 @@ These presets use the following plugins, wherever appropriate:
 
 I would love to add more! Create an issue or PR with recommendations.
 
-Please help with tests :)
-
 [npm-image]: https://img.shields.io/npm/v/babel-preset-jongleberry.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/babel-preset-jongleberry
+[travis-image]: https://img.shields.io/travis/jongleberry/babel-preset-jongleberry.svg?style=flat-square
+[travis-url]: https://travis-ci.org/jongleberry/babel-preset-jongleberry
+[codecov-image]: https://img.shields.io/codecov/c/github/jongleberry/babel-preset-jongleberry/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/jongleberry/babel-preset-jongleberry
 [david-image]: http://img.shields.io/david/jongleberry/babel-preset-jongleberry.svg?style=flat-square
 [david-url]: https://david-dm.org/jongleberry/babel-preset-jongleberry
 [license-image]: http://img.shields.io/npm/l/babel-preset-jongleberry.svg?style=flat-square
