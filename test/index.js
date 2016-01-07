@@ -30,7 +30,12 @@ describe('ES2016 + Flow', () => {
           mkdirp.sync(path.dirname(pathname))
           fs.writeFileSync(pathname, result.code)
 
-          new Function(result.code)
+          try {
+            new Function(result.code)
+          } catch (err) {
+            console.error(result.code)
+            throw err
+          }
         })
       })
     })
