@@ -19,7 +19,7 @@
     "lodash": "^3.10.1"
   },
   "devDependencies": {
-    "babel-core": "^6.3.26",
+    "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
     "codecov": "^1.0.1",
     "eslint": "^1.10.3",
