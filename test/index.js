@@ -18,7 +18,8 @@ describe('ES2016 + Flow', () => {
       const preset = require(`../${name}`)
       fixtures.forEach(fixture => {
         it(fixture, () => {
-          babel.transform(fs.readFileSync(path.join(__dirname, 'fixtures', fixture), 'utf8'), preset)
+          const result = babel.transform(fs.readFileSync(path.join(__dirname, 'fixtures', fixture), 'utf8'), preset)
+          new Function(result.code)
         })
       })
     })
