@@ -29,7 +29,7 @@ These presets use the following plugins, wherever appropriate:
 - `babel-preset-es2015`, `babel-preset-es2015-node4`, `babel-preset-es2015-node5` - depending on the environment
 - `babel-preset-stage-0`
 - `babel-plugin-syntax-flow`, `babel-plugin-typecheck` (non-production only), `babel-plugin-transform-flow-strip-types` - for flow type support
-- `babel-plugin-transform-runtime` - avoid global polyfills
+<!-- - `babel-plugin-transform-runtime` - avoid global polyfills -->
 - `babel-plugin-lodash` - minimize lodash builds in your FE builds
 
 ## Contributions
