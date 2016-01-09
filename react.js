@@ -21,4 +21,9 @@ module.exports = {
     require('babel-preset-stage-0'),
     require('babel-preset-react'),
   ],
+  env: {
+    development: {
+      presets: ['react-hmre']
+    },
+  },
 }

@@ -21,4 +21,9 @@ module.exports = {
     require('babel-preset-es2015'),
     require('babel-preset-react'),
   ],
+  env: {
+    development: {
+      presets: ['react-hmre']
+    },
+  },
 }
