@@ -3,7 +3,6 @@
     "jongleberry"
   ],
   "rules": {
-    "comma-dangle": [2, "always"],
     "no-console": 0,
     "no-new": 0,
     "no-new-func": 0,
