@@ -27,7 +27,7 @@ module.exports = {
     // don't use regenerator because it sucks
     if (x === 'transform-regenerator') return false
     return true
-  }).map(name => require('babel-plugin-' + name))),
+  }).map(name => require('babel-plugin-' + name.toLowerCase()))),
 
   presets: [
     require('babel-preset-stage-0'),

@@ -7,6 +7,6 @@ const modules = require('babel-features').options().plugins
     if (x === 'transform-regenerator') return false
     return true
   })
-  .map(name => 'babel-plugin-' + name)
+  .map(name => 'babel-plugin-' + name.toLowerCase())
 
 require('child_process').execSync('npm i --save ' + modules.join(' '))
