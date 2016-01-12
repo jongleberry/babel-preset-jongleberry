@@ -25,5 +25,11 @@ module.exports = {
     development: {
       presets: ['react-hmre']
     },
+    production: {
+      plugins: [
+        'transform-react-constant-elements',
+        'transform-react-inline-elements',
+      ]
+    }
   },
 }
