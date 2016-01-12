@@ -12,7 +12,7 @@ const pluginFeatures = require('babel-features').options().plugins
   if (x === 'transform-regenerator') return false
   return true
 })
-.map(name => require('babel-plugin-' + name.toLowerCase())
+.map(name => require('babel-plugin-' + name.toLowerCase()))
 
 module.exports = {
   plugins: [
