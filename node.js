@@ -7,7 +7,7 @@ const wrapDefault = require('./wrap-default')
 
 const pluginFeatures = require('babel-features').options().plugins
 .filter(x => {
-  console.log(x0)
+  console.log(x)
   // don't use regenerator because it sucks
   if (x === 'transform-regenerator') return false
   return true
