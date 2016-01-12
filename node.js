@@ -5,15 +5,6 @@ if (version < 4) throw new Error('Only node v4+ is supported!')
 
 const wrapDefault = require('./wrap-default')
 
-const pluginFeatures = require('babel-features').options().plugins
-.filter(x => {
-  console.log(x)
-  // don't use regenerator because it sucks
-  if (x === 'transform-regenerator') return false
-  return true
-})
-.map(name => require('babel-plugin-' + name.toLowerCase()))
-
 module.exports = {
   plugins: [
     [
@@ -32,7 +23,8 @@ module.exports = {
     require('babel-plugin-syntax-flow'),
     require('babel-plugin-transform-flow-strip-types'),
     // require('babel-plugin-transform-runtime'),
-  ].concat(pluginFeatures),
+  ]
+  .concat(require('./filter-babel-features').map(name => require(name))),
 
   presets: [
     require('babel-preset-stage-0'),

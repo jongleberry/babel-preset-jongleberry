@@ -66,6 +66,7 @@
     "isomorphic"
   ],
   "files": [
+    "filter-babel-features.js",
     "wrap-default.js",
     "node.js",
     "react.js",
