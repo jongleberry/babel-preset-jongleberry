@@ -7,7 +7,6 @@
   "repository": "jongleberry/babel-preset-jongleberry",
   "dependencies": {
     "babel-features": "2.0.0-beta",
-    "babel-plugin-lodash": "1.1.0",
     "babel-plugin-syntax-flow": "6.3.13",
     "babel-plugin-transform-async-to-module-method": "6.4.0",
     "babel-plugin-transform-es2015-destructuring": "6.4.0",
@@ -25,8 +24,7 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-react-hmre": "1.0.1",
     "babel-preset-stage-0": "6.3.13",
-    "bluebird": "3.1.1",
-    "lodash": "4.0.0"
+    "bluebird": "3.1.1"
   },
   "devDependencies": {
     "babel-core": "6.4.0",

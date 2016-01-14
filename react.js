@@ -13,7 +13,6 @@ module.exports = {
     ],
     require('babel-plugin-syntax-flow'),
     require('babel-plugin-transform-flow-strip-types'),
-    wrapDefault(require('babel-plugin-lodash')),
     // require('babel-plugin-transform-runtime'),
   ],
   presets: [
