@@ -13,7 +13,7 @@ module.exports = {
     ],
     require('babel-plugin-syntax-flow'),
     require('babel-plugin-transform-flow-strip-types'),
-    // require('babel-plugin-transform-runtime'),
+    require('babel-plugin-transform-runtime'),
   ],
   presets: [
     require('babel-preset-es2015'),
