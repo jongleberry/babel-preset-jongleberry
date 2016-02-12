@@ -28,7 +28,7 @@
     "bluebird": "3.2.2"
   },
   "devDependencies": {
-    "babel-core": "6.5.1",
+    "babel-core": "6.5.2",
     "babel-eslint": "next",
     "codecov": "1.0.1",
     "eslint": "2.0.0",
