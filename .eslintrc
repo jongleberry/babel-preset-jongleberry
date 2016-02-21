@@ -1,6 +1,6 @@
 {
   "extends": [
-    "jongleberry"
+    "jongleberry/react"
   ],
   "rules": {
     "no-console": 0,
