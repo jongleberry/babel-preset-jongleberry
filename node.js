@@ -13,13 +13,6 @@ module.exports = {
         method: 'coroutine'
       }
     ],
-    [
-      load('babel-plugin-typecheck'), {
-        disable: {
-          production: true,
-        },
-      },
-    ],
     load('babel-plugin-syntax-flow'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
@@ -29,4 +22,12 @@ module.exports = {
   presets: [
     load('babel-preset-stage-0'),
   ],
+
+  env: {
+    development: {
+      plugins: [
+        load('babel-plugin-typecheck')
+      ]
+    }
+  }
 }
