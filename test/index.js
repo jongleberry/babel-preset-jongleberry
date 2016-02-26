@@ -19,25 +19,36 @@ before(done => {
 })
 
 describe('ES2016 + Flow', () => {
-  presets.forEach(name => {
-    describe(name, () => {
-      const preset = require(`../${name}`)
-      fixtures.forEach(fixture => {
-        it(fixture, () => {
-          const result = babel.transform(fs.readFileSync(path.join(__dirname, 'fixtures', fixture), 'utf8'), preset)
+  const ENVS = [
+    'development',
+    'production',
+  ]
 
-          const pathname = path.join(__dirname, 'results', name, fixture)
-          mkdirp.sync(path.dirname(pathname))
-          fs.writeFileSync(pathname, result.code)
+  for (const ENV of ENVS) {
+    describe(`Environment: ${ENV}`, () => {
+      presets.forEach(name => {
+        describe(name, () => {
+          const preset = require(`../${name}`)
+          fixtures.forEach(fixture => {
+            it(fixture, () => {
+              process.env.BABEL_ENV = ENV
 
-          try {
-            new Function(result.code)
-          } catch (err) {
-            console.error(result.code)
-            throw err
-          }
+              const result = babel.transform(fs.readFileSync(path.join(__dirname, 'fixtures', fixture), 'utf8'), preset)
+
+              const pathname = path.join(__dirname, 'results', ENV, name, fixture)
+              mkdirp.sync(path.dirname(pathname))
+              fs.writeFileSync(pathname, result.code)
+
+              try {
+                new Function(result.code)
+              } catch (err) {
+                console.error(result.code)
+                throw err
+              }
+            })
+          })
         })
       })
     })
-  })
+  }
 })
