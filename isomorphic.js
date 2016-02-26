@@ -1,33 +1,35 @@
 'use strict'
 
-const wrapDefault = require('./wrap-default')
+const load = require('./load')
 
 module.exports = {
   plugins: [
     [
-      wrapDefault(require('babel-plugin-typecheck')), {
+      load('babel-plugin-typecheck'), {
         disable: {
           production: true,
         },
       },
     ],
-    require('babel-plugin-syntax-flow'),
-    require('babel-plugin-transform-flow-strip-types'),
-    require('babel-plugin-transform-runtime'),
+    load('babel-plugin-syntax-flow'),
+    load('babel-plugin-transform-flow-strip-types'),
+    load('babel-plugin-transform-runtime'),
   ],
   presets: [
-    require('babel-preset-stage-0'),
-    require('babel-preset-es2015'),
-    require('babel-preset-react'),
+    load('babel-preset-stage-0'),
+    load('babel-preset-es2015'),
+    load('babel-preset-react'),
   ],
   env: {
     development: {
-      presets: ['react-hmre']
+      presets: [
+        load('babel-preset-react-hmre'),
+      ]
     },
     production: {
       plugins: [
-        'transform-react-constant-elements',
-        'transform-react-inline-elements',
+        load('babel-plugin-transform-react-constant-elements'),
+        load('babel-plugin-transform-react-inline-elements'),
       ]
     }
   },

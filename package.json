@@ -7,6 +7,7 @@
   "repository": "jongleberry/babel-preset-jongleberry",
   "dependencies": {
     "babel-features": "2.0.0-beta",
+    "babel-plugin-react-remove-prop-types": "2.0.2",
     "babel-plugin-syntax-flow": "6.5.0",
     "babel-plugin-transform-async-to-module-method": "6.5.2",
     "babel-plugin-transform-es2015-destructuring": "6.5.0",
@@ -68,7 +69,7 @@
   ],
   "files": [
     "filter-babel-features.js",
-    "wrap-default.js",
+    "load.js",
     "node.js",
     "react.js",
     "isomorphic.js"
