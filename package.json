@@ -9,7 +9,7 @@
     "babel-features": "2.0.0-beta",
     "babel-plugin-react-remove-prop-types": "^2.0.2",
     "babel-plugin-syntax-flow": "^6.5.0",
-    "babel-plugin-transform-async-to-module-method": "^6.5.2",
+    "babel-plugin-transform-async-to-module-method": "^6.7.0",
     "babel-plugin-transform-es2015-destructuring": "^6.6.0",
     "babel-plugin-transform-es2015-function-name": "^6.5.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.6.3",
