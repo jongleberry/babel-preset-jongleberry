@@ -33,7 +33,7 @@
     "babel-eslint": "^6.0.0",
     "codecov": "^1.0.1",
     "eslint": "^2.5.3",
-    "eslint-config-jongleberry": "^3.0.0",
+    "eslint-config-jongleberry": "^4.0.0",
     "eslint-config-standard": "^5.1.0",
     "eslint-config-standard-jsx": "^1.1.1",
     "eslint-plugin-babel": "3.1.0",
