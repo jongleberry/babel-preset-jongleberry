@@ -6,7 +6,7 @@ module.exports = {
   presets: [
     load('babel-preset-react'),
     load('babel-preset-es2015'),
-    load('babel-preset-stage-0'),
+    load('babel-preset-stage-1'),
   ],
 
   plugins: [

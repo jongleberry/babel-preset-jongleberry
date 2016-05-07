@@ -21,7 +21,7 @@ module.exports = {
   .concat(load('./filter-babel-features').map(load)),
 
   presets: [
-    load('babel-preset-stage-0'),
+    load('babel-preset-stage-1'),
   ],
 
   env: {
