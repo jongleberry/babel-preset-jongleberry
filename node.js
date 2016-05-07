@@ -7,6 +7,7 @@ const load = require('./load')
 
 module.exports = {
   plugins: [
+    load('babel-plugin-lodash'),
     [
       load('babel-plugin-transform-async-to-module-method'), {
         module: 'bluebird',
