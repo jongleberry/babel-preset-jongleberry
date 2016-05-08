@@ -5,9 +5,8 @@ const load = require('./load')
 module.exports = {
   presets: [
     load('babel-preset-react'),
-    load('babel-preset-modern'),
-    load('babel-preset-modern/safari9'),
-    load('babel-preset-modern/stage1'),
+    load('babel-preset-es2015'),
+    load('babel-preset-stage-1'),
   ],
 
   plugins: [
