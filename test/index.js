@@ -1,6 +1,7 @@
 'use strict'
 
 const babel = require('babel-core')
+const uglify = require('uglify-js')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const path = require('path')
@@ -37,7 +38,8 @@ describe('Babel Preset Jongleberry', () => {
                 ENV,
                 preset,
                 path.join(__dirname, 'fixtures', 'js', fixture),
-                path.join(__dirname, 'results', ENV, name, 'js', fixture)
+                path.join(__dirname, 'results', ENV, name, 'js', fixture),
+                name !== 'node' // whether to minify
               ))
             })
           })
@@ -69,7 +71,7 @@ describe('Babel Preset Jongleberry', () => {
   }
 })
 
-function run (ENV, preset, filename, output) {
+function run (ENV, preset, filename, output, minify) {
   return () => {
     process.env.BABEL_ENV = ENV
 
@@ -83,6 +85,17 @@ function run (ENV, preset, filename, output) {
     } catch (err) {
       console.error(result.code)
       throw err
+    }
+
+    if (minify) {
+      try {
+        uglify.minify(result.code, {
+          fromString: true
+        })
+      } catch (err) {
+        console.error(result.code)
+        throw err
+      }
     }
   }
 }
