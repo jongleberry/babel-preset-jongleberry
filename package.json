@@ -36,7 +36,7 @@
     "uglify-js": "^2.6.2"
   },
   "scripts": {
-    "lint": "eslint --cache *.js test",
+    "lint": "eslint *.js test/*.js test/**/*.js",
     "test": "mocha --bail",
     "test-cov": "nyc node_modules/mocha/bin/_mocha && nyc report --reporter=lcov"
   },

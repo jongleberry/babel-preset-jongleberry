@@ -29,7 +29,7 @@ module.exports = {
       plugins: [
         load('babel-plugin-transform-react-constant-elements'),
         load('babel-plugin-transform-react-inline-elements'),
-        load('babel-plugin-react-remove-prop-types'),
+        load('babel-plugin-transform-react-remove-prop-types'),
       ]
     }
   },

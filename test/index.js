@@ -36,8 +36,8 @@ describe('Babel Preset Jongleberry', () => {
               it(fixture, run({
                 env: ENV,
                 presetName,
-                filename: path.join(__dirname, 'fixtures', 'js', fixture),
-                output: path.join(__dirname, 'results', ENV, presetName, 'js', fixture),
+                type: 'js',
+                fixture,
               }))
             })
           })
@@ -56,8 +56,8 @@ describe('Babel Preset Jongleberry', () => {
               it(fixture, run({
                 env: ENV,
                 presetName,
-                filename: path.join(__dirname, 'fixtures', 'react', fixture),
-                output: path.join(__dirname, 'results', ENV, presetName, 'react', fixture),
+                type: 'react',
+                fixture,
               }))
             })
           })
@@ -71,12 +71,14 @@ function run (options) {
   const {
     env,
     presetName,
-    filename,
-    output,
+    type,
+    fixture,
   } = options
 
   const preset = require(`../${presetName}`)
   const minify = presetName !== 'node'
+  const filename = path.join(__dirname, 'fixtures', type, fixture)
+  const output = path.join(__dirname, 'results', env, presetName, type, fixture)
 
   return () => {
     process.env.BABEL_ENV = env
@@ -108,9 +110,19 @@ function run (options) {
       }
     }
 
-    if (presetName === 'react' && env === 'production') {
+    if (presetName === 'react' && env === 'production' && type === 'react') {
       // no proptypes in production
       assert(!/\bproptypes?\b/i.test(result.code))
+
+      if (fixture === 'plugins') {
+        // uses babel helpers
+        // http://babeljs.io/docs/plugins/transform-react-inline-elements/
+        assert(~result.code.indexOf('babel-runtime/helpers/jsx'))
+
+        // constant elements
+        // http://babeljs.io/docs/plugins/transform-react-constant-elements/
+        assert(~result.code.indexOf('return _ref')) // NOTE: this test is bound to break
+      }
     }
   }
 }
