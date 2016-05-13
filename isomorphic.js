@@ -13,7 +13,6 @@ module.exports = {
     load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
-    load('babel-plugin-closure-elimination'),
   ],
 
   env: {
@@ -31,6 +30,7 @@ module.exports = {
         load('babel-plugin-transform-react-constant-elements'),
         load('babel-plugin-transform-react-inline-elements'),
         load('babel-plugin-transform-react-remove-prop-types'),
+        load('babel-plugin-closure-elimination'),
       ]
     }
   },

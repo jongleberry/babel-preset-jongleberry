@@ -110,12 +110,12 @@ function run (options) {
       }
     }
 
-    if (fixture === 'closures') {
+    if (env === 'production' && fixture === 'closures') {
       // https://github.com/codemix/babel-plugin-closure-elimination
       assert(/\binput\.map\(\w+\)\.map\(\w+\)/.test(result.code))
     }
 
-    if (presetName === 'react' && env === 'production' && type === 'react') {
+    if (env === 'production' && presetName === 'react' && type === 'react') {
       // no proptypes in production
       assert(!/\bproptypes?\b/i.test(result.code))
 

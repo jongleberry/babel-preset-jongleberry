@@ -17,7 +17,6 @@ module.exports = {
     load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
-    load('babel-plugin-closure-elimination'),
   ]
   .concat(load('./filter-babel-features').map(load)),
 
@@ -29,6 +28,11 @@ module.exports = {
     development: {
       plugins: [
         load('babel-plugin-typecheck')
+      ]
+    },
+    production: {
+      plugins: [
+        load('babel-plugin-closure-elimination'),
       ]
     }
   }
