@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-'use strict'
-
-// Make sure all the necessary node modules are installed.
-const modules = require('./filter-babel-features')
-
-require('child_process').execSync('npm i --save ' + modules.join(' '))
