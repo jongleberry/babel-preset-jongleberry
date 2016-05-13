@@ -7,7 +7,6 @@ const load = require('./load')
 
 module.exports = {
   plugins: [
-    load('babel-plugin-lodash'),
     [
       load('babel-plugin-transform-async-to-module-method'), {
         module: 'bluebird',
@@ -15,8 +14,10 @@ module.exports = {
       }
     ],
     load('babel-plugin-syntax-flow'),
+    load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
+    load('babel-plugin-closure-elimination'),
   ]
   .concat(load('./filter-babel-features').map(load)),
 

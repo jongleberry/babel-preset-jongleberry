@@ -13,6 +13,7 @@ module.exports = {
     load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
+    load('babel-plugin-closure-elimination'),
   ],
 
   env: {
