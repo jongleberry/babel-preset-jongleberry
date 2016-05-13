@@ -4,6 +4,7 @@ const babel = require('babel-core')
 const uglify = require('uglify-js')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
+const assert = require('assert')
 const path = require('path')
 const fs = require('fs')
 
@@ -29,18 +30,15 @@ describe('Babel Preset Jongleberry', () => {
           'isomorphic',
         ]
 
-        presets.forEach(name => {
-          describe(name, () => {
-            const preset = require(`../${name}`)
-
+        presets.forEach(presetName => {
+          describe(presetName, () => {
             FIXTURES_JS.forEach(fixture => {
-              it(fixture, run(
-                ENV,
-                preset,
-                path.join(__dirname, 'fixtures', 'js', fixture),
-                path.join(__dirname, 'results', ENV, name, 'js', fixture),
-                name !== 'node' // whether to minify
-              ))
+              it(fixture, run({
+                env: ENV,
+                presetName,
+                filename: path.join(__dirname, 'fixtures', 'js', fixture),
+                output: path.join(__dirname, 'results', ENV, presetName, 'js', fixture),
+              }))
             })
           })
         })
@@ -52,17 +50,15 @@ describe('Babel Preset Jongleberry', () => {
           'isomorphic',
         ]
 
-        presets.forEach(name => {
-          describe(name, () => {
-            const preset = require(`../${name}`)
-
+        presets.forEach(presetName => {
+          describe(presetName, () => {
             FIXTURES_REACT.forEach(fixture => {
-              it(fixture, run(
-                ENV,
-                preset,
-                path.join(__dirname, 'fixtures', 'react', fixture),
-                path.join(__dirname, 'results', ENV, name, 'react', fixture)
-              ))
+              it(fixture, run({
+                env: ENV,
+                presetName,
+                filename: path.join(__dirname, 'fixtures', 'react', fixture),
+                output: path.join(__dirname, 'results', ENV, presetName, 'react', fixture),
+              }))
             })
           })
         })
@@ -71,15 +67,28 @@ describe('Babel Preset Jongleberry', () => {
   }
 })
 
-function run (ENV, preset, filename, output, minify) {
-  return () => {
-    process.env.BABEL_ENV = ENV
+function run (options) {
+  const {
+    env,
+    presetName,
+    filename,
+    output,
+  } = options
 
+  const preset = require(`../${presetName}`)
+  const minify = presetName !== 'node'
+
+  return () => {
+    process.env.BABEL_ENV = env
+
+    // transform the result
     const result = babel.transform(fs.readFileSync(filename, 'utf8'), preset)
 
+    // write the file for inspection
     mkdirp.sync(path.dirname(output))
     fs.writeFileSync(output, result.code)
 
+    // make sure it's valid JS
     try {
       new Function(result.code)
     } catch (err) {
@@ -87,6 +96,7 @@ function run (ENV, preset, filename, output, minify) {
       throw err
     }
 
+    // make sure it's minify-able
     if (minify) {
       try {
         uglify.minify(result.code, {
@@ -96,6 +106,11 @@ function run (ENV, preset, filename, output, minify) {
         console.error(result.code)
         throw err
       }
+    }
+
+    if (presetName === 'react' && env === 'production') {
+      // no proptypes in production
+      assert(!/\bproptypes?\b/i.test(result.code))
     }
   }
 }
