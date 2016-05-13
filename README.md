@@ -32,6 +32,8 @@ These presets use the following plugins, wherever appropriate:
 - `babel-plugin-syntax-flow`, `babel-plugin-typecheck` (non-production only), `babel-plugin-transform-flow-strip-types` - for flow type support
 - `babel-plugin-transform-runtime` - avoid global polyfills
 - `babel-plugin-lodash` - minimize lodash builds in your FE builds
+- `babel-plugin-transform-react-constant-elements`, `babel-plugin-transform-react-inline-elements`, `babel-plugin-transform-react-remove-prop-types` - minimize react builds in production
+- `babel-plugin-closure-elimination` - eliminate closures in production for performance
 
 ## Contributions
 
