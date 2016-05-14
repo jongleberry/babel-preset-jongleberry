@@ -129,5 +129,8 @@ function run (options) {
         assert(~result.code.indexOf('return _ref')) // NOTE: this test is bound to break
       }
     }
+
+    // getting regenerator runtime errors
+    assert(!/\b_?regeneratorRuntime\b/i.test(result.code))
   }
 }
