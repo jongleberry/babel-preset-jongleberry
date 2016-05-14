@@ -27,10 +27,10 @@ module.exports = {
 
     production: {
       plugins: [
-        load('babel-plugin-transform-react-constant-elements'),
-        load('babel-plugin-transform-react-inline-elements'),
-        load('babel-plugin-transform-react-remove-prop-types'),
         load('babel-plugin-closure-elimination'),
+      ],
+      presets: [
+        load('babel-preset-react-optimize'),
       ]
     }
   },

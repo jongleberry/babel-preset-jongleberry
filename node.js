@@ -30,6 +30,7 @@ module.exports = {
         load('babel-plugin-typecheck')
       ]
     },
+
     production: {
       plugins: [
         load('babel-plugin-closure-elimination'),
