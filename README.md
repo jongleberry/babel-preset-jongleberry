@@ -33,7 +33,6 @@ These presets use the following plugins, wherever appropriate:
 - `babel-plugin-transform-runtime` - avoid global polyfills
 - `babel-plugin-lodash` - minimize lodash builds in your FE builds
 - `babel-react-optimize` - minimize and optimize react builds in production
-- `babel-plugin-closure-elimination` - eliminate closures in production for performance
 
 ## Contributions
 

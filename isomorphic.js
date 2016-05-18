@@ -26,9 +26,6 @@ module.exports = {
     },
 
     production: {
-      plugins: [
-        // load('babel-plugin-closure-elimination'),
-      ],
       presets: [
         load('babel-preset-react-optimize'),
       ]

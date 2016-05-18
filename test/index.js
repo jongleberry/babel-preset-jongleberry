@@ -110,10 +110,10 @@ function run (options) {
       }
     }
 
-    if (env === 'production' && fixture === 'closures') {
-      // https://github.com/codemix/babel-plugin-closure-elimination
-      assert(/\binput\.map\(\w+\)\.map\(\w+\)/.test(result.code))
-    }
+    // if (env === 'production' && fixture === 'closures') {
+    //   // https://github.com/codemix/babel-plugin-closure-elimination
+    //   assert(/\binput\.map\(\w+\)\.map\(\w+\)/.test(result.code))
+    // }
 
     if (env === 'production' && presetName === 'react' && type === 'react') {
       // no proptypes in production
