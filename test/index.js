@@ -68,12 +68,10 @@ describe('Babel Preset Jongleberry', () => {
 })
 
 function run (options) {
-  const {
-    env,
-    presetName,
-    type,
-    fixture,
-  } = options
+  const env = options.env
+  const presetName = options.presetName
+  const type = options.type
+  const fixture = options.fixture
 
   const preset = require(`../${presetName}`)
   const minify = presetName !== 'node'

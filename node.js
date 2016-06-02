@@ -17,6 +17,7 @@ module.exports = {
     load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
+    load('babel-plugin-transform-es2015-modules-commonjs'),
   ]
   .concat(load('./filter-babel-features').map(load)),
 

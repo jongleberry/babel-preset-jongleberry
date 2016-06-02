@@ -10,6 +10,7 @@ module.exports = {
   ],
 
   plugins: [
+    load('babel-plugin-transform-es2015-modules-commonjs'),
     load('babel-plugin-lodash'),
     load('babel-plugin-transform-flow-strip-types'),
     load('babel-plugin-transform-runtime'),
