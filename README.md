@@ -27,7 +27,6 @@ Usage:
 These presets use the following plugins, wherever appropriate:
 
 - `babel-preset-es2015` - for browsers
-- `babel-features` - use just the presets needed for the current node environment
 - `babel-preset-stage-1`
 - `babel-plugin-syntax-flow`, `babel-plugin-typecheck` (non-production only), `babel-plugin-transform-flow-strip-types` - for flow type support
 - `babel-plugin-transform-runtime` - avoid global polyfills
