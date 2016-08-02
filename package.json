@@ -23,7 +23,7 @@
     "babel-core": "^6.6.0",
     "codecov": "^1.0.1",
     "eslint": "^3.0.1",
-    "eslint-config-jongleberry": "^5.0.0",
+    "eslint-config-jongleberry": "^5.0.1",
     "lodash": "^4.11.2",
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.0",
