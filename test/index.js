@@ -1,5 +1,10 @@
 'use strict'
 
+/* eslint-env mocha */
+/* eslint max-nested-callbacks: 0 */
+/* eslint no-new: 0 */
+/* eslint no-new-func: 0 */
+
 const babel = require('babel-core')
 const uglify = require('uglify-js')
 const mkdirp = require('mkdirp')
@@ -18,7 +23,7 @@ before(done => {
 describe('Babel Preset Jongleberry', () => {
   const ENVS = [
     'development',
-    'production',
+    'production'
   ]
 
   for (const ENV of ENVS) {
@@ -27,7 +32,7 @@ describe('Babel Preset Jongleberry', () => {
         const presets = [
           'node',
           'react',
-          'isomorphic',
+          'isomorphic'
         ]
 
         presets.forEach(presetName => {
@@ -37,7 +42,7 @@ describe('Babel Preset Jongleberry', () => {
                 env: ENV,
                 presetName,
                 type: 'js',
-                fixture,
+                fixture
               }))
             })
           })
@@ -47,7 +52,7 @@ describe('Babel Preset Jongleberry', () => {
       describe('React Fixtures', () => {
         const presets = [
           'react',
-          'isomorphic',
+          'isomorphic'
         ]
 
         presets.forEach(presetName => {
@@ -57,7 +62,7 @@ describe('Babel Preset Jongleberry', () => {
                 env: ENV,
                 presetName,
                 type: 'react',
-                fixture,
+                fixture
               }))
             })
           })
